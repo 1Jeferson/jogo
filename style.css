@@ -1,0 +1,257 @@
+:root {
+  --ink: #14110e;
+  --paper: #f4ead7;
+  --gold: #e4c37a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #0b0a09;
+  color: var(--paper);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+#view {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  cursor: default;
+}
+
+.panel {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 3;
+  width: min(320px, calc(100vw - 36px));
+  padding: 18px 18px 14px;
+  border: 1px solid #ffffff22;
+  background: #0f0d0bcc;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--gold);
+  letter-spacing: 0.28em;
+  font: 700 10px/1 Arial, sans-serif;
+}
+
+.panel h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.lede {
+  margin: 0 0 14px;
+  color: #d8cbb4;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+#roomList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#roomList li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-top: 1px solid #ffffff14;
+  font-size: 14px;
+}
+
+#roomList li strong {
+  font-weight: 700;
+}
+
+#roomList li span {
+  color: #b9ad97;
+  font-style: italic;
+}
+
+#roomList li.here strong {
+  color: var(--gold);
+}
+
+.hud {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 3;
+  max-width: min(360px, calc(100vw - 36px));
+  text-align: right;
+  text-shadow: 0 2px 12px #000;
+  pointer-events: none;
+}
+
+#roomName {
+  margin: 0;
+  font-size: clamp(22px, 3vw, 36px);
+}
+
+#hint {
+  margin: 6px 0 0;
+  color: #efe4cf;
+  font-size: 14px;
+}
+
+.prompt {
+  position: fixed;
+  left: 50%;
+  bottom: 78px;
+  z-index: 4;
+  transform: translateX(-50%);
+  padding: 12px 18px;
+  border: 2px solid var(--gold);
+  background: #111008ee;
+  color: #fff;
+  font: 700 14px/1 Arial, sans-serif;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.prompt:hover {
+  background: #2a2416ee;
+}
+
+.event-toast {
+  position: fixed;
+  left: 50%;
+  top: 22%;
+  z-index: 6;
+  width: min(420px, calc(100vw - 40px));
+  transform: translateX(-50%);
+  padding: 22px 24px 20px;
+  border: 3px solid var(--gold);
+  background: #111008f2;
+  text-align: center;
+  box-shadow: 0 18px 50px #000a;
+  pointer-events: none;
+  animation: eventIn 0.35s ease-out;
+}
+
+.event-toast[hidden] {
+  display: none;
+}
+
+.event-toast .eyebrow {
+  margin: 0 0 10px;
+}
+
+.event-toast p:last-child {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+@keyframes eventIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.inspect {
+  width: min(720px, 92vw);
+  padding: 22px 24px 20px;
+  border: 6px solid #d7b56d;
+  background: #18191b;
+  color: #fff;
+}
+
+.inspect img {
+  display: block;
+  width: 100%;
+  max-height: 48vh;
+  object-fit: contain;
+  margin: 0 0 16px;
+  border: 6px solid #eee;
+  background: #111;
+}
+
+.inspect img[hidden] {
+  display: none;
+}
+
+.inspect::backdrop {
+  background: #000a;
+}
+
+.inspect .eyebrow {
+  margin: 0 0 6px;
+  color: var(--gold);
+  letter-spacing: 0.28em;
+  font: 700 10px/1 Arial, sans-serif;
+}
+
+.inspect h2 {
+  margin: 0 0 12px;
+  font-size: 32px;
+}
+
+.inspect p {
+  margin: 0 0 18px;
+  color: #ddd;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.inspect button {
+  padding: 10px 16px;
+  border: 2px solid var(--gold);
+  background: transparent;
+  color: #fff;
+  font: 700 13px/1 Arial, sans-serif;
+  cursor: pointer;
+}
+
+.controls {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 14px;
+  z-index: 3;
+  margin: 0;
+  text-align: center;
+  color: #efe6d4;
+  font: 12px/1.6 Arial, sans-serif;
+  text-shadow: 0 2px 8px #000;
+  pointer-events: none;
+}
+
+@media (max-width: 820px) {
+  .panel {
+    width: calc(100vw - 24px);
+    left: 12px;
+    top: 12px;
+  }
+
+  .hud {
+    top: auto;
+    right: 12px;
+    bottom: 92px;
+  }
+
+  .controls {
+    font-size: 11px;
+  }
+}

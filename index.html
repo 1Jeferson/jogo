@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Museu das Fuinhas</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.170.0/build/three.module.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <canvas id="view"></canvas>
+
+    <aside class="panel">
+      <p class="eyebrow">MUSEU DAS FUINHAS</p>
+      <h1>Sessões</h1>
+      <p class="lede">O museu só acende de verdade quando você aceita o convite de viver juntos pra sempre.</p>
+      <ol id="roomList"></ol>
+    </aside>
+
+    <header class="hud">
+      <p id="roomName">Sala Nós</p>
+      <p id="hint">Olhe todos os quadros da Ala do Jogo e da Ala das Papadas.</p>
+    </header>
+
+    <button id="prompt" class="prompt" type="button" hidden>Interagir</button>
+
+    <div id="eventToast" class="event-toast" hidden>
+      <p class="eyebrow">ALGO ACONTECEU</p>
+      <p>Uma porta se abriu no museu.</p>
+    </div>
+
+    <dialog id="inspect" class="inspect">
+      <p class="eyebrow">ACERVO</p>
+      <img id="inspectImage" alt="" hidden />
+      <h2 id="inspectTitle"></h2>
+      <p id="inspectText"></p>
+      <button id="inspectClose" type="button">Fechar</button>
+    </dialog>
+
+    <p class="controls">
+      Arraste para girar · scroll para zoom · WASD andar · Q/C girar · E interagir · F tela cheia
+    </p>
+
+    <script type="module" src="game.js"></script>
+  </body>
+</html>
